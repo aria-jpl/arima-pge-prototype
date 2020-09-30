@@ -9,5 +9,10 @@
   ],
   "soft_time_limit": 43200,
   "time_limit": 86400,
-  "params": []
+  "params": [
+    {
+        "name": "input_dataset",
+        "destination": "context"
+    }
+  ]
 }

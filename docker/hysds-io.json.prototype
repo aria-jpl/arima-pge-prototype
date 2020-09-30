@@ -2,5 +2,11 @@
   "label": "ARIMA from MintPy Time Series",
   "submission_type": "iteration",
   "enable_dedup": false,
-  "params": []
+  "params": [
+      {
+        "name": "input_dataset",
+        "from": "dataset_jpath:<path>",
+        "type": "text"
+      }
+  ]
 }
