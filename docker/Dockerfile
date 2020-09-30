@@ -20,7 +20,7 @@ ENV PATH=${PATH}:${pge_root}
 
 USER root
 # TODO: REMOVE NEXT LINE ONCE LOCAL TESTS ARE COMPLETE
-RUN mv ${pge_root}/examples/* ${pge_root}
+#RUN mv ${pge_root}/examples/* ${pge_root}
 
 USER ops
 CMD ["Arima.py"]
