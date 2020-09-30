@@ -1,0 +1,13 @@
+{
+  "command": "/home/ops/verdi/ops/arima-pge/wrapper_scripts/Arima.py",
+  "imported_worker_files": {
+    "/home/ops/.netrc": "/home/ops/.netrc"
+  },
+  "disk_usage": "32GB",
+  "recommended-queues": [
+    "edunn-jplnet-dev"
+  ],
+  "soft_time_limit": 43200,
+  "time_limit": 86400,
+  "params": []
+}

@@ -1,0 +1,6 @@
+{
+  "label": "ARIMA from MintPy Time Series",
+  "submission_type": "iteration",
+  "enable_dedup": false,
+  "params": []
+}
