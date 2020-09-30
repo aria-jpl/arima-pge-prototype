@@ -2,7 +2,9 @@
 # coding: utf-8
 
 # In[ ]:
-
+import json
+import subprocess
+from hashlib import md5
 
 import h5py
 import os
@@ -13,8 +15,21 @@ import matplotlib.pyplot as plt
 
 # In[3]:
 
-# pge_root = '/home/ops/verdi/ops/arima-pge'
-data_root = '/home/parallels/dev/arima-pge/examples'
+def generate_id(id_prefix, context_filename):
+        timestamp = subprocess.check_output(['date', '-u', '+%Y%m%dT%H%M%S.%NZ']).decode().strip()
+
+        with open(context_filename) as context_file:
+            hash_suffix = md5(context_file.read().encode()).hexdigest()[0:5]
+
+        job_id = f'{id_prefix}-{timestamp}-{hash_suffix}'
+        print(f'Generated job ID: {job_id}')
+        return job_id
+
+data_root = '/home/ops/verdi/ops/arima-pge'
+# data_root = '/home/parallels/dev/arima-pge/examples'
+job_id = generate_id('S1-TIMESERIES-ARIMA', '_context.json')
+output_root = f'./{job_id}'
+os.makedirs(output_root)
 
 data = os.path.join(data_root, 'D128_timeseries_ERA5_demErr.h5')
 mask = os.path.join(data_root, 'D128_maskTempCoh.h5')
@@ -47,12 +62,13 @@ for i, fr in enumerate(ts_allregion):
 # In[6]:
 
 
-plt.figure()
+fig = plt.figure()
 plt.title(dates[97])
 plt.imshow(timeseries[97, :, :], vmin=0, vmax=2.5, cmap='jet')
 plt.colorbar()
 plt.show()
-plt.close()
+fig.savefig(os.path.join(output_root, '2d-ts-plot.png'))
+
 
 # ## Extracting region masks
 # ### Image Segmentation
@@ -78,6 +94,8 @@ regions = regions.astype(np.uint8) * 255
 fig, ax = plt.subplots(figsize=(10, 6))
 ax.set_title('Image Segmentation')
 ax.imshow(regions)
+fig.savefig(os.path.join(output_root, 'image-segmentation.png'))
+
 
 # ### Masks
 
@@ -130,6 +148,9 @@ axs[1, 0].imshow(thrs)
 thrs = np.bitwise_and(mask3viz, regions)
 axs[1, 1].set_title('Region 3')
 axs[1, 1].imshow(thrs)
+
+fig.savefig(os.path.join(output_root, 'segments.png'))
+
 
 # ## Splitting Data
 # Splitting data into four 1D time series according to segmented regions. 
@@ -287,7 +308,24 @@ diff_reg3 = np.concatenate(diff_reg3).ravel()
 
 # In[11]:
 
+results = {
+    'region_1': {
+        'predictions': pred_reg1.tolist(),
+        'actual': series1[split_init:].tolist()
+    },
+    'region_2': {
+        'predictions': pred_reg2.tolist(),
+        'actual': series2[split_init:].tolist()
+    },
+    'region_3': {
+        'predictions': pred_reg3.tolist(),
+        'actual': series3[split_init:].tolist()
+    },
+}
+with open(os.path.join(output_root, 'results.json'), 'w+') as output_file:
+    json.dump(results, output_file)
 
+# TODO: Get Luciana to prepare these plots in a savable format (ie figure)
 plt.cla()
 plt.plot(pred_reg1, 'g.', series1[split_init:], 'b.')
 xticks_pos, xticks_labels = get_ticks_and_labels([0, split_end - split_init - 1], 20, split_init)
@@ -317,7 +355,7 @@ plt.show()
 
 plt.cla()
 plt.plot(diff_reg1, 'b.', label='Region 1')
-plt.plot(diff_reg2, 'y.', label='Regionb 2')
+plt.plot(diff_reg2, 'y.', label='Region 2')
 plt.plot(diff_reg3, 'm.', label='Region 3')
 plt.ylabel('Difference')
 plt.xlabel('Time Sample')

@@ -2,3 +2,5 @@
 /venv/
 .idea
 examples
+_context.json
+S1-TIMESERIES-ARIMA-*
