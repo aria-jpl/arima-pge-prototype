@@ -1,0 +1,340 @@
+{
+  "_command": "/home/ops/verdi/ops/arima-pge/wrapper_scripts/Arima.py",
+  "_disk_usage": "32GB",
+  "_prov": {
+    "wasGeneratedBy": "task_id:f21d36b0-a7ff-483f-94a3-c51fbb1bca7a"
+  },
+  "container_image_name": "container-aria-jpl_arima-pge-prototype:main",
+  "container_image_url": "s3://s3-us-west-2.amazonaws.com/aria-dev-cc-fwd-torresal/container-aria-jpl_arima-pge-prototype:main.tar.gz",
+  "container_mappings": {
+    "/home/ops/.netrc": "/home/ops/.netrc"
+  },
+  "container_specification": {
+    "digest": "sha256:38a911cbe33cb8b5171047f32debfd1993734ff076334af16f8f03f7890161f2",
+    "id": "container-aria-jpl_arima-pge-prototype:main",
+    "url": "s3://s3-us-west-2.amazonaws.com/aria-dev-cc-fwd-torresal/container-aria-jpl_arima-pge-prototype:main.tar.gz",
+    "version": "main"
+  },
+  "input_dataset": {
+    "browse_urls": [
+      "http://aria-dev-rs-fwd-torresal.s3-website-us-west-2.amazonaws.com/browse/S1-TIMESERIES-MINTPY/v1.0/2020/09/22/S1-TIMESERIES-MINTPY-20200922T194530.030785195Z-75b90",
+      "s3://s3-us-west-2.amazonaws.com:80/aria-dev-rs-fwd-torresal/browse/S1-TIMESERIES-MINTPY/v1.0/2020/09/22/S1-TIMESERIES-MINTPY-20200922T194530.030785195Z-75b90"
+    ],
+    "center": {
+      "coordinates": [
+        -121.43032990999995,
+        35.86569042499999
+      ],
+      "type": "point"
+    },
+    "city": [],
+    "continent": "North America",
+    "dataset": "S1-TIMESERIES-MINTPY",
+    "dataset_level": "l0",
+    "dataset_type": "time_series",
+    "endtime": "2017-12-09T00:00:00",
+    "id": "S1-TIMESERIES-MINTPY-20200922T194530.030785195Z-75b90",
+    "images": [],
+    "ipath": "hysds::data/S1-TIMESERIES-MINTPY",
+    "label": "MintPy Time Series",
+    "location": {
+      "coordinates": [
+        [
+          [
+            -121.43695799,
+            35.87056698
+          ],
+          [
+            -121.42370183,
+            35.87056698
+          ],
+          [
+            -121.42370183,
+            35.86081387
+          ],
+          [
+            -121.43695799,
+            35.86081387
+          ],
+          [
+            -121.43695799,
+            35.87056698
+          ]
+        ]
+      ],
+      "type": "Polygon"
+    },
+    "metadata": {
+      "context": {
+        "_command": "/home/ops/verdi/ops/mintpy-pge/wrapper_scripts/run.sh frame '35.87056698' '35.86081387' '-121.43695799' '-121.42370183' '35' '2010-01-01' '2018-01-01'",
+        "_disk_usage": "32GB",
+        "_prov": {
+          "wasGeneratedBy": "task_id:492745b8-4a22-485a-b3b7-ec6d6e48f78e"
+        },
+        "container_image_id": "sha256:2f1cc0eb4ccd86a719b583e7f2fb9f7f5b179588cd38116349b14b42027fb206",
+        "container_image_name": "container-aria-jpl_mintpy-pge:main",
+        "container_image_url": "s3://s3-us-west-2.amazonaws.com/aria-dev-cc-fwd-torresal/container-aria-jpl_mintpy-pge:main.tar.gz",
+        "container_mappings": {
+          "/home/ops/.netrc": "/home/ops/.netrc"
+        },
+        "container_specification": {
+          "digest": "sha256:2f1cc0eb4ccd86a719b583e7f2fb9f7f5b179588cd38116349b14b42027fb206",
+          "id": "container-aria-jpl_mintpy-pge:main",
+          "url": "s3://s3-us-west-2.amazonaws.com/aria-dev-cc-fwd-torresal/container-aria-jpl_mintpy-pge:main.tar.gz",
+          "version": "main"
+        },
+        "east_bound": -121.42370183,
+        "end_date": "2018-01-01",
+        "job_priority": 0,
+        "job_specification": {
+          "command": "/home/ops/verdi/ops/mintpy-pge/wrapper_scripts/run.sh frame",
+          "container": "container-aria-jpl_mintpy-pge:main",
+          "disk_usage": "32GB",
+          "id": "job-snwe-bounds:main",
+          "imported_worker_files": {
+            "/home/ops/.netrc": "/home/ops/.netrc"
+          },
+          "job-version": "main",
+          "params": [
+            {
+              "destination": "positional",
+              "name": "north_bound",
+              "value": "35.87056698"
+            },
+            {
+              "destination": "positional",
+              "name": "south_bound",
+              "value": 35.86081387
+            },
+            {
+              "destination": "positional",
+              "name": "west_bound",
+              "value": -121.43695799
+            },
+            {
+              "destination": "positional",
+              "name": "east_bound",
+              "value": -121.42370183
+            },
+            {
+              "destination": "positional",
+              "name": "track_number",
+              "value": "35"
+            },
+            {
+              "destination": "positional",
+              "name": "start_date",
+              "value": "2010-01-01"
+            },
+            {
+              "destination": "positional",
+              "name": "end_date",
+              "value": "2018-01-01"
+            }
+          ],
+          "recommended-queues": [
+            "edunn-jplnet-dev"
+          ],
+          "resource": "jobspec",
+          "soft_time_limit": 43200,
+          "time_limit": 86400
+        },
+        "localize_urls": [],
+        "north_bound": "35.87056698",
+        "runtime_options": {},
+        "south_bound": 35.86081387,
+        "start_date": "2010-01-01",
+        "tag": "bigsur_landslide_asc",
+        "track_number": "35",
+        "west_bound": -121.43695799
+      },
+      "track": 35
+    },
+    "objectid": "S1-TIMESERIES-MINTPY-20200922T194530.030785195Z-75b90",
+    "prov": {
+      "wasGeneratedBy": "task_id:492745b8-4a22-485a-b3b7-ec6d6e48f78e"
+    },
+    "starttime": "2015-05-24T00:00:00",
+    "system_version": "v1.0",
+    "temporal_span": 930,
+    "urls": [
+      "http://aria-dev-rs-fwd-torresal.s3-website-us-west-2.amazonaws.com/products/S1-TIMESERIES-MINTPY/v1.0/2020/09/22/S1-TIMESERIES-MINTPY-20200922T194530.030785195Z-75b90",
+      "s3://s3-us-west-2.amazonaws.com:80/aria-dev-rs-fwd-torresal/products/S1-TIMESERIES-MINTPY/v1.0/2020/09/22/S1-TIMESERIES-MINTPY-20200922T194530.030785195Z-75b90"
+    ],
+    "version": "v1.0"
+  },
+  "job_priority": 0,
+  "job_specification": {
+    "command": "/home/ops/verdi/ops/arima-pge/wrapper_scripts/Arima.py",
+    "container": "container-aria-jpl_arima-pge-prototype:main",
+    "disk_usage": "32GB",
+    "id": "job-prototype:main",
+    "imported_worker_files": {
+      "/home/ops/.netrc": "/home/ops/.netrc"
+    },
+    "job-version": "main",
+    "params": [
+      {
+        "destination": "context",
+        "name": "input_dataset",
+        "value": {
+          "browse_urls": [
+            "http://aria-dev-rs-fwd-torresal.s3-website-us-west-2.amazonaws.com/browse/S1-TIMESERIES-MINTPY/v1.0/2020/09/22/S1-TIMESERIES-MINTPY-20200922T194530.030785195Z-75b90",
+            "s3://s3-us-west-2.amazonaws.com:80/aria-dev-rs-fwd-torresal/browse/S1-TIMESERIES-MINTPY/v1.0/2020/09/22/S1-TIMESERIES-MINTPY-20200922T194530.030785195Z-75b90"
+          ],
+          "center": {
+            "coordinates": [
+              -121.43032990999995,
+              35.86569042499999
+            ],
+            "type": "point"
+          },
+          "city": [],
+          "continent": "North America",
+          "dataset": "S1-TIMESERIES-MINTPY",
+          "dataset_level": "l0",
+          "dataset_type": "time_series",
+          "endtime": "2017-12-09T00:00:00",
+          "id": "S1-TIMESERIES-MINTPY-20200922T194530.030785195Z-75b90",
+          "images": [],
+          "ipath": "hysds::data/S1-TIMESERIES-MINTPY",
+          "label": "MintPy Time Series",
+          "location": {
+            "coordinates": [
+              [
+                [
+                  -121.43695799,
+                  35.87056698
+                ],
+                [
+                  -121.42370183,
+                  35.87056698
+                ],
+                [
+                  -121.42370183,
+                  35.86081387
+                ],
+                [
+                  -121.43695799,
+                  35.86081387
+                ],
+                [
+                  -121.43695799,
+                  35.87056698
+                ]
+              ]
+            ],
+            "type": "Polygon"
+          },
+          "metadata": {
+            "context": {
+              "_command": "/home/ops/verdi/ops/mintpy-pge/wrapper_scripts/run.sh frame '35.87056698' '35.86081387' '-121.43695799' '-121.42370183' '35' '2010-01-01' '2018-01-01'",
+              "_disk_usage": "32GB",
+              "_prov": {
+                "wasGeneratedBy": "task_id:492745b8-4a22-485a-b3b7-ec6d6e48f78e"
+              },
+              "container_image_id": "sha256:2f1cc0eb4ccd86a719b583e7f2fb9f7f5b179588cd38116349b14b42027fb206",
+              "container_image_name": "container-aria-jpl_mintpy-pge:main",
+              "container_image_url": "s3://s3-us-west-2.amazonaws.com/aria-dev-cc-fwd-torresal/container-aria-jpl_mintpy-pge:main.tar.gz",
+              "container_mappings": {
+                "/home/ops/.netrc": "/home/ops/.netrc"
+              },
+              "container_specification": {
+                "digest": "sha256:2f1cc0eb4ccd86a719b583e7f2fb9f7f5b179588cd38116349b14b42027fb206",
+                "id": "container-aria-jpl_mintpy-pge:main",
+                "url": "s3://s3-us-west-2.amazonaws.com/aria-dev-cc-fwd-torresal/container-aria-jpl_mintpy-pge:main.tar.gz",
+                "version": "main"
+              },
+              "east_bound": -121.42370183,
+              "end_date": "2018-01-01",
+              "job_priority": 0,
+              "job_specification": {
+                "command": "/home/ops/verdi/ops/mintpy-pge/wrapper_scripts/run.sh frame",
+                "container": "container-aria-jpl_mintpy-pge:main",
+                "disk_usage": "32GB",
+                "id": "job-snwe-bounds:main",
+                "imported_worker_files": {
+                  "/home/ops/.netrc": "/home/ops/.netrc"
+                },
+                "job-version": "main",
+                "params": [
+                  {
+                    "destination": "positional",
+                    "name": "north_bound",
+                    "value": "35.87056698"
+                  },
+                  {
+                    "destination": "positional",
+                    "name": "south_bound",
+                    "value": 35.86081387
+                  },
+                  {
+                    "destination": "positional",
+                    "name": "west_bound",
+                    "value": -121.43695799
+                  },
+                  {
+                    "destination": "positional",
+                    "name": "east_bound",
+                    "value": -121.42370183
+                  },
+                  {
+                    "destination": "positional",
+                    "name": "track_number",
+                    "value": "35"
+                  },
+                  {
+                    "destination": "positional",
+                    "name": "start_date",
+                    "value": "2010-01-01"
+                  },
+                  {
+                    "destination": "positional",
+                    "name": "end_date",
+                    "value": "2018-01-01"
+                  }
+                ],
+                "recommended-queues": [
+                  "edunn-jplnet-dev"
+                ],
+                "resource": "jobspec",
+                "soft_time_limit": 43200,
+                "time_limit": 86400
+              },
+              "localize_urls": [],
+              "north_bound": "35.87056698",
+              "runtime_options": {},
+              "south_bound": 35.86081387,
+              "start_date": "2010-01-01",
+              "tag": "bigsur_landslide_asc",
+              "track_number": "35",
+              "west_bound": -121.43695799
+            },
+            "track": 35
+          },
+          "objectid": "S1-TIMESERIES-MINTPY-20200922T194530.030785195Z-75b90",
+          "prov": {
+            "wasGeneratedBy": "task_id:492745b8-4a22-485a-b3b7-ec6d6e48f78e"
+          },
+          "starttime": "2015-05-24T00:00:00",
+          "system_version": "v1.0",
+          "temporal_span": 930,
+          "urls": [
+            "http://aria-dev-rs-fwd-torresal.s3-website-us-west-2.amazonaws.com/products/S1-TIMESERIES-MINTPY/v1.0/2020/09/22/S1-TIMESERIES-MINTPY-20200922T194530.030785195Z-75b90",
+            "s3://s3-us-west-2.amazonaws.com:80/aria-dev-rs-fwd-torresal/products/S1-TIMESERIES-MINTPY/v1.0/2020/09/22/S1-TIMESERIES-MINTPY-20200922T194530.030785195Z-75b90"
+          ],
+          "version": "v1.0"
+        }
+      }
+    ],
+    "recommended-queues": [
+      "edunn-jplnet-dev"
+    ],
+    "resource": "jobspec",
+    "soft_time_limit": 43200,
+    "time_limit": 86400
+  },
+  "localize_urls": [],
+  "runtime_options": {},
+  "tag": "edunn-arima"
+}

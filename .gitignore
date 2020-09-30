@@ -1,6 +1,6 @@
 /.ipynb_checkpoints/
 /venv/
 .idea
-examples
-_context.json
+examples/*.h5
+/_context.json
 S1-TIMESERIES-ARIMA-*
