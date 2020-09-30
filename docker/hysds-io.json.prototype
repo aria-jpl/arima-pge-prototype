@@ -4,9 +4,9 @@
   "enable_dedup": false,
   "params": [
       {
-        "name": "input_dataset",
+        "name": "localize_url",
         "from": "dataset_jpath:_source",
-        "type": "text"
+        "lambda": "lambda ds: filter(lambda x: x.startswith('s3://'), ds['urls'])[0]"
       }
   ]
 }

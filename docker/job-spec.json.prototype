@@ -9,10 +9,11 @@
   ],
   "soft_time_limit": 43200,
   "time_limit": 86400,
+  "pre": [ "hysds.utils.localize_urls" ],
   "params": [
     {
-        "name": "input_dataset",
-        "destination": "context"
+        "name": "localize_url",
+        "destination": "localize"
     }
   ]
 }
