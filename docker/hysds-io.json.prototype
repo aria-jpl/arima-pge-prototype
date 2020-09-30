@@ -5,7 +5,7 @@
   "params": [
       {
         "name": "input_dataset",
-        "from": "dataset_jpath:<path>",
+        "from": "dataset_jpath:_source",
         "type": "text"
       }
   ]
