@@ -1,5 +1,5 @@
 {
-  "command": "/home/ops/verdi/ops/arima-pge/wrapper_scripts/Arima.py",
+  "command": "/home/ops/verdi/ops/arima-pge/Arima.py",
   "imported_worker_files": {
     "/home/ops/.netrc": "/home/ops/.netrc"
   },
