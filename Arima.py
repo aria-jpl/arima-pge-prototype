@@ -11,6 +11,9 @@ import os
 import numpy as np
 import matplotlib.pyplot as plt
 
+from get_dataset import fetch
+
+
 # ## Loading data
 
 # In[3]:
@@ -25,14 +28,24 @@ def generate_id(id_prefix, context_filename):
         print(f'Generated job ID: {job_id}')
         return job_id
 
-data_root = '/home/ops/verdi/ops/arima-pge'
-# data_root = '/home/parallels/dev/arima-pge/examples'
+
+data_root = '.'
 job_id = generate_id('S1-TIMESERIES-ARIMA', '_context.json')
 output_root = f'./{job_id}'
 os.makedirs(output_root)
 
-data = os.path.join(data_root, 'D128_timeseries_ERA5_demErr.h5')
-mask = os.path.join(data_root, 'D128_maskTempCoh.h5')
+
+# TODO: Replace this with localization preprocessor
+with open('_context.json') as context_file:
+    context = json.load(context_file)
+    input_dataset = next(filter(lambda param: param['name'] == 'input_dataset', context['job_specification']['params']))
+    url = next(filter(lambda url: url.startswith('s3://'), input_dataset['value']['urls']))
+    files = ['maskTempCoh.h5', 'timeseries_demErr.h5']
+    fetch(url, files, data_root)
+
+
+data = os.path.join(data_root, 'timeseries_demErr.h5')
+mask = os.path.join(data_root, 'maskTempCoh.h5')
 
 filename = os.path.basename(data)
 maskfile = h5py.File(mask, 'r')

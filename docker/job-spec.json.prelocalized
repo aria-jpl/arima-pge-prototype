@@ -11,8 +11,8 @@
   "time_limit": 86400,
   "params": [
     {
-        "name": "input_dataset",
-        "destination": "context"
+        "name": "localize_url",
+        "destination": "localize"
     }
   ]
 }
