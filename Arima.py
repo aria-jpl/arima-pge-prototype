@@ -379,3 +379,12 @@ plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
 plt.show()
 
 # In[ ]:
+
+with open(os.path.join(output_root, f'{job_id}.dataset.json'), 'w+') as definition_file:
+    json.dump({
+        "version": "v1.0",
+        "location": input_dataset['location']
+    }, definition_file)
+
+with open(os.path.join(output_root, f'{job_id}.met.json'), 'w+') as metadata_file:
+    json.dump({}, metadata_file)
