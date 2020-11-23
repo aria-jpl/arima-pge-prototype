@@ -15,12 +15,13 @@ RUN /opt/conda/bin/pip install -r ${pge_root}/requirements.txt
 
 # Copy in scripts and configuration
 COPY --chown=ops:ops . $pge_root
-RUN chmod a+x ${pge_root}/Arima.py
+RUN chmod a+x ${pge_root}/run_pge.py
 ENV PATH=${PATH}:${pge_root}
 
 USER root
 # TODO: REMOVE NEXT LINE ONCE LOCAL TESTS ARE COMPLETE
-#RUN mv ${pge_root}/examples/* ${pge_root}
+#RUN mv ${pge_root}/examples/_context.json /home/ops/
+#RUN mv ${pge_root}/examples/timeseries_demErr.h5 /home/ops/
 
 USER ops
-CMD ["Arima.py"]
+CMD ["run_pge.py"]
